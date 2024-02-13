@@ -1,3 +1,5 @@
+
+#################################################### Instructions #################################################################
 ## Test technique - candidat Développeur Android
 
 Ce test technique vise à évaluer vos compétences en développement Android, votre capacité à prendre des décisions éclairées et
@@ -24,3 +26,23 @@ Sur une base volontaire:
 - Utiliser la stack technologique de ton choix;
 - Utiliser l'architecture de ton choix;
 - Expliquer les hypothèses/choix pris si certains points ne sont pas faits. Un projet incomplet et propre sera toujours privilégié par rapport à un test complet mais avec des points non-fonctionnels.
+###################################################################################################################################
+
+#################################################### Présentation #################################################################
+
+# 
+L'application se compose de 2 écrans (+ 1 splashscreen)
+- un 1er écran qui affiche un feed de titres d'articles
+- un 2nd écran accessible après le clic sur un titre de la liste et qui détaille un article
+
+L'application possède une feature de tri par date ou 'channel', en utilisant cette feature, le user peut trier les articles dans le feed.
+Il y a aussi une feature de filtre de titres d'article selon un 'channel' choisi.
+Les options de tri sont sauvegardé en local sur le device du user.
+
+Dans le feed, on affiche le 'channel' de l'article, le gros titre, et la date de publication.
+Dans les details, on affiche l'image de l'article, le gros titre, le 'channel', la date de publication, le contenu de l'article, un lien pour rediriger vers le site web, et la date de modification de l'article
+
+# Stack technique
+
+
+# Points d'évolution :
