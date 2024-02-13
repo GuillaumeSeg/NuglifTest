@@ -20,8 +20,6 @@ class FeedRepositoryImpl(
     private val _selectedItem = MutableSharedFlow<Article>(replay = 1)
 
     private val _mapChannel: MutableMap<String, MutableList<String>> = mutableMapOf()
-    internal val mapChannel: MutableMap<String, MutableList<String>>
-        get() = _mapChannel
 
     internal fun updateMapChannel(newMap: Map<String, MutableList<String>>) {
         _mapChannel.clear()
@@ -31,15 +29,18 @@ class FeedRepositoryImpl(
     private val _channels = MutableSharedFlow<List<String>>(replay = 1)
 
     override fun fetchFeed() {
+        // Get articles from the source (json)
         val results = feedRemoteDataSource.fetchFeed()
 
         val allArticles = mutableListOf<Article>()
         results.map { remoteArticle ->
+            // retrieve the visual image of the article
             val visual = if (remoteArticle.visual.isNotEmpty()) {
                 remoteArticle.visual[0]
             } else { null }
 
             allArticles.add(
+                // Create and add the articles in a list
                 Article(
                     id = remoteArticle.id,
                     title = remoteArticle.title,
@@ -63,13 +64,14 @@ class FeedRepositoryImpl(
         }
         if (allArticles.isNotEmpty()) {
             // Sort at the beginning according to the choice of the user
+            // And emits the results.
             when (settingsRepository.retrieveSortingMethod()) {
                 SortingMethod.BY_DATE -> {
                     val newList = allArticles.sortedByDescending { it.publicationDate }
                     articles.tryEmit(newList)
                 }
                 SortingMethod.BY_CHANNEL -> {
-                    val newList = allArticles.sortedByDescending { it.channelName }
+                    val newList = allArticles.sortedBy { it.channelName }
                     articles.tryEmit(newList)
                 }
                 SortingMethod.UNSPECIFIED -> {
@@ -110,8 +112,22 @@ class FeedRepositoryImpl(
 
     override fun filterByChannel(channel: String) {
         if (channel == ALL) {
-            articles.tryEmit(allArticles)
+            // If the user choose ALL, re-emit all articles
+            when (settingsRepository.retrieveSortingMethod()) {
+                SortingMethod.BY_DATE -> {
+                    val newList = allArticles.sortedByDescending { it.publicationDate }
+                    articles.tryEmit(newList)
+                }
+                SortingMethod.BY_CHANNEL -> {
+                    val newList = allArticles.sortedBy { it.channelName }
+                    articles.tryEmit(newList)
+                }
+                SortingMethod.UNSPECIFIED -> {
+                    articles.tryEmit(allArticles)
+                }
+            }
         } else {
+            // Otherwise filter by a 'channel'
             val listToFilter = allArticles
             val listIdsArticles = _mapChannel[channel]
             val newList = mutableListOf<Article>()

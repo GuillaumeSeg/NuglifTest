@@ -11,8 +11,6 @@ import kotlinx.coroutines.launch
 import lapresse.nuglif.domain.models.ui.ArticleDetails
 import lapresse.nuglif.domain.repositories.FeedRepository
 import lapresse.nuglif.presentation.navigation.NavigationManager
-import java.time.LocalDateTime
-import java.time.Month
 import java.time.format.DateTimeFormatter
 import javax.inject.Inject
 

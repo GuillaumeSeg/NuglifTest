@@ -4,6 +4,9 @@ import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.text.TextStyle
 
+/**
+ * Defines the 3 TextStyles used in the screens UI
+ */
 @Immutable
 data class ReplacementTypography(
     val bigTitle: TextStyle = TextStyle.Default,

@@ -93,5 +93,4 @@ fun DetailsView(viewModel: DetailsViewModel) {
             }
         }
     }
-
 }

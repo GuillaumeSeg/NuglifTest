@@ -11,6 +11,11 @@ import androidx.navigation.navigation
 import lapresse.nuglif.presentation.views.details.DetailsView
 import lapresse.nuglif.presentation.views.feed.FeedView
 
+/**
+ *  AppNavigation
+ *  defines the graph of the App, 2 screens composable (FeedView/DetailsView)
+ *  with a slide transition between the 2 screens.
+ */
 @Composable
 fun AppNavigation(navController: NavHostController, startDest: NavigationCommand) {
     NavHost(

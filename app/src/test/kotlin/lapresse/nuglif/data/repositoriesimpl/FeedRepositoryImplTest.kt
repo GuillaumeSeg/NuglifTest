@@ -8,9 +8,11 @@ import lapresse.nuglif.data.remote.IFeedRemoteDataSource
 import lapresse.nuglif.data.repositoriesimpl.FeedRepositoryImpl.Companion.ALL
 import lapresse.nuglif.domain.models.Article
 import lapresse.nuglif.domain.repositories.SettingsRepository
+import lapresse.nuglif.domain.repositories.SortingMethod
 import org.junit.Before
 import org.junit.Test
 import org.mockito.Mockito.mock
+import org.mockito.Mockito.`when`
 import java.time.LocalDateTime
 import java.time.Month
 
@@ -110,6 +112,7 @@ class FeedRepositoryImplTest {
         }
 
         // When
+        `when`(settingsRepository.retrieveSortingMethod()).thenReturn(SortingMethod.UNSPECIFIED)
         feedRepositoryImpl.filterByChannel(channelToFilter)
 
         // Then

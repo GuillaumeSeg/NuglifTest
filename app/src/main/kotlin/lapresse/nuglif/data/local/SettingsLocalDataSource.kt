@@ -4,6 +4,9 @@ import android.content.Context
 import android.content.SharedPreferences
 import lapresse.nuglif.R
 
+/**
+ * Save data in the SharedPreferences of the app.
+ */
 class SettingsLocalDataSource(context: Context) {
 
     private val sharedPreferences: SharedPreferences

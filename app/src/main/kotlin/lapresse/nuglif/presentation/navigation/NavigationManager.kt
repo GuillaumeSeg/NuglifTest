@@ -6,7 +6,7 @@ import lapresse.nuglif.presentation.navigation.MainDirections.Default
 
 class NavigationManager {
 
-    lateinit var navController: NavHostController
+    private lateinit var navController: NavHostController
     var commands = MutableStateFlow(Default)
 
     fun initNavMan(navHostController: NavHostController) {

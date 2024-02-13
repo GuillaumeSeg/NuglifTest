@@ -9,6 +9,9 @@ import lapresse.nuglif.R
 import lapresse.nuglif.domain.models.response.ArticleResponse
 import lapresse.nuglif.tools.LocalDateTimeAdapter
 
+/**
+ *  Retrieve and parse the articles from a 'local' json file.
+ */
 class FeedRemoteDataSource(context: Context) : IFeedRemoteDataSource {
 
     private val moshi: Moshi = Moshi.Builder().add(LocalDateTimeAdapter()).build()

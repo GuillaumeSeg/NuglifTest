@@ -12,6 +12,10 @@ enum class SortingMethod(val keySetting: String) {
     }
 }
 
+/**
+ *  SettingsRepository
+ *  Responsible to save and retrieve the sorting method chosen by the user
+ */
 interface SettingsRepository {
 
     fun saveSortingMethod(sortingMethod: SortingMethod)

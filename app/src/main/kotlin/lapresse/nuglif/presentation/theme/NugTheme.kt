@@ -21,12 +21,14 @@ fun NugTheme(
 
     val colors = if (isDarkTheme) { lightThemeColors } else { lightThemeColors }
 
+    // Provides the colors and typo used in the Screens
     CompositionLocalProvider(
         LocalReplacementTypography provides StandardTypography,
         LocalAppThemeColors provides colors
     ) {
         val view = LocalView.current
         if (!view.isInEditMode) {
+            // To set the color of NavigationBar and StatusBar
             SideEffect {
                 val window = (view.context as Activity).window
                 window.statusBarColor = lightThemeColors.primary.toArgb()

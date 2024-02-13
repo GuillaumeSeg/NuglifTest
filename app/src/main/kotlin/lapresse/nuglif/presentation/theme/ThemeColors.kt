@@ -5,6 +5,9 @@ import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.graphics.Color
 
+/**
+ * Defines the colors of the theme
+ */
 @Immutable
 class ThemeColors(
     val primary: Color = Color.Unspecified,
