@@ -1,0 +1,15 @@
+<resources>
+    <string name="shared_pref_key" translatable="false">lapresse.nuglif.test.PREFERENCE_FILE_KEY</string>
+
+    <string name="app_name">Nuglif Test</string>
+    <string name="action_sort">Trier</string>
+    <string name="yourPosition">Votre position: %1$s / %2$s </string>
+    <string name="error_locationNotSupported">Erreur, votre emplacement n&#8217;est pas supportée</string>
+
+    <string name="feed_title">Feed</string>
+    <string name="feed_sort_by_date">Trier par date</string>
+    <string name="feed_sort_by_channel">Trier par [channel]</string>
+    <string name="details_read_more">Lire sur le site</string>
+    <string name="details_modified_label">Modifié le :</string>
+
+</resources>
