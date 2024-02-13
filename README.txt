@@ -90,3 +90,12 @@ j'ai choisi de tester FeedRepositoryImpl.
 il y a 4 tests a executer, ils vont tester la feature de tri par 'channel', de tri par date et de filtre par un 'channel' ou de filtre par ALL.
 
 # Points d'évolution :
+
+- La UI des features filtre et tri n'est pas idéal, parce qu'elle se superpose, peut etre faire un sous menu ou un autre menu settings.
+- Ajouter le thème Dark avec une autre palette de couleur
+- Pouvoir ajouter des 'channels' favori qui seraient sauvegardé par le user en Local, et pré filtré au lancement de l'app. Comme ça, les users non intéressé par 'soccer' ou 'menace nord coréenne' ne les voient plus.
+- La version tablette, plus adaptée à l'espace.
+- Une correction du bug sur la mise en paysage du téléphone sur l'écran DetailView.
+- Ajouter des tests instrumentalisé avec JetpackCompose.
+
+
